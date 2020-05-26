@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Select from 'react-select';
 
 function App() {
+  const [selectedOption, setSelectedOption] = useState({ value: '17:00', label: '17:00' })
+  const hourOptions = () => {
+    const options = []
+    // 7:00 ... 23:45
+    for (let h = 7; h <= 23; h++) {
+      // TODO steps
+      for (const m of ['00', '15', '30', '45']) {
+        const hour = `${h}:${m}`
+        options.push({ value: hour, label: hour })
+      }
+    }
+    return options
+  }
+  const handleChange = (selectedOption) => {
+    setSelectedOption(selectedOption)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Select
+      value={selectedOption}
+      options={hourOptions()}
+      onChange={handleChange}
+    />
   );
 }
 
