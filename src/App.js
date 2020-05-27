@@ -3,7 +3,7 @@ import { useState } from 'react';
 import HourSelect from "./HourSelect";
 
 const App = () => {
-  const defaultHourValue = { value: '9:45', label: '9:45' }
+  const value = '9:30'
   const [hourSelected, setHourSelected] = useState({})
 
   const handleHourChange = (selectedOption) => {
@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <HourSelect
-      defaultHourValue={defaultHourValue}
+      value={value}
       onChange={handleHourChange}
     />
   );

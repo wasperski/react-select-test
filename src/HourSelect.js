@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 
-const HourSelect = ({defaultHourValue, onChange}) => {
+const HourSelect = ( {value, onChange} ) => {
   const hourOptions = [
     { value: '7:00', label: '7:00' },
     { value: '7:15', label: '7:15' },
@@ -23,7 +23,7 @@ const HourSelect = ({defaultHourValue, onChange}) => {
     <Select
       options={hourOptions}
       onChange={onChange}
-      defaultValue={defaultHourValue}
+      value={hourOptions.find(option => { return option.value === value })}
     />
   );
 }
