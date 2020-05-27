@@ -1,29 +1,22 @@
 import React from 'react';
 import { useState } from 'react';
-import Select from 'react-select';
+import HourSelect from "./HourSelect";
 
-function App() {
-  const [selectedOption, setSelectedOption] = useState({ value: '17:00', label: '17:00' })
-  const hourOptions = () => {
-    const options = []
-    // 7:00 ... 23:45
-    for (let h = 7; h <= 23; h++) {
-      // TODO steps
-      for (const m of ['00', '15', '30', '45']) {
-        const hour = `${h}:${m}`
-        options.push({ value: hour, label: hour })
-      }
-    }
-    return options
+const App = () => {
+  const defaultHourValue = { value: '9:45', label: '9:45' }
+  const [hourSelected, setHourSelected] = useState({})
+
+  const handleHourChange = (selectedOption) => {
+    // setHourSelected(selectedOption)
+    console.log('selectedOption', selectedOption)
   }
-  const handleChange = (selectedOption) => {
-    setSelectedOption(selectedOption)
-  }
+
+  console.log('App RENDER')
+
   return (
-    <Select
-      value={selectedOption}
-      options={hourOptions()}
-      onChange={handleChange}
+    <HourSelect
+      defaultHourValue={defaultHourValue}
+      onChange={handleHourChange}
     />
   );
 }
