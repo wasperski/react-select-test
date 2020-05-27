@@ -7,7 +7,7 @@ const App = () => {
   const [hourSelected, setHourSelected] = useState({})
 
   const handleHourChange = (selectedOption) => {
-    // setHourSelected(selectedOption)
+    setHourSelected(selectedOption)
     console.log('selectedOption', selectedOption)
   }
 
